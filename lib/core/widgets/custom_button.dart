@@ -22,24 +22,22 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SizedBox(
-        height: 45,
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            backgroundColor: backgroundColor,
-            foregroundColor: AppColors.background,
-            shape: RoundedRectangleBorder(
-              borderRadius: borderRadius ?? BorderRadius.circular(15.0),
-            ),
+    return SizedBox(
+      height: 45,
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          backgroundColor: backgroundColor,
+          foregroundColor: AppColors.background,
+          shape: RoundedRectangleBorder(
+            borderRadius: borderRadius ?? BorderRadius.circular(15.0),
           ),
-          child: Text(
-            text,
-            style: AppStyles.textStyle18.copyWith(
-              color: textColor,
-              fontSize: fontSize,
-            ),
+        ),
+        child: Text(
+          text,
+          style: Styles.textStyle18.copyWith(
+            color: textColor,
+            fontSize: fontSize,
           ),
         ),
       ),

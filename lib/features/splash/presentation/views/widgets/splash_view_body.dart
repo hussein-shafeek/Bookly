@@ -1,7 +1,9 @@
+import 'package:bookly/core/routes/app_router.dart';
 import 'package:bookly/core/utils/app_colors.dart';
 import 'package:bookly/core/widgets/loading_indicator.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/sliding_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -19,7 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
-    //navigateToHome();
+    navigateToHome();
   }
 
   @override
@@ -37,8 +39,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Spacer(),
           SlidingLogo(slidingAnimation: slidingAnimation),
-          // const LoadingIndicator(),
+          const Spacer(),
+          const LoadingIndicator(),
+          const SizedBox(height: 40),
         ],
       ),
     );
@@ -56,9 +61,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController.forward();
   }
 
-  // void navigateToHome() {
-  //   Future.delayed(const Duration(seconds: 3)).then((value) {
-  //     // return Navigator.pushReplacementNamed(context, Routes.homeView);
-  //   });
-  // }
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      return GoRouter.of(context).go(AppRouter.kHomeView);
+    });
+  }
 }
