@@ -1,9 +1,11 @@
+import 'package:bookly/core/routes/app_router.dart';
 import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class HomeView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              // Navigator.pushNamed(context, Routes.searchView);
+              context.push(AppRouter.kSearchView);
             },
           ),
         ],

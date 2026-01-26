@@ -5,14 +5,14 @@ import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).go(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: SizedBox(
         height: 125,
