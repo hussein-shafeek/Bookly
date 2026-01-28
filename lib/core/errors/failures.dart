@@ -50,7 +50,7 @@ class ServerFailure extends Failure {
     } else if (statusCode == 500) {
       return ServerFailure(errMessage: 'Server error, please try later!');
     } else if (statusCode == 403) {
-      //    Helper.expiredToken();
+      //Helper.expiredToken();
       throw ServerFailure(errMessage: response['error']['message']);
     } else if (statusCode == 413) {
       return ServerFailure(
@@ -59,6 +59,10 @@ class ServerFailure extends Failure {
     } else if (statusCode == 404) {
       return ServerFailure(
         errMessage: 'Your request not found, Please try later!',
+      );
+    } else if (statusCode == 429) {
+      return ServerFailure(
+        errMessage: 'Too many requests, please try again later',
       );
     } else {
       return ServerFailure(

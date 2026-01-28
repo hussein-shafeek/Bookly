@@ -15,6 +15,9 @@ class FeaturedBooksFailure extends FeaturedBooksState {
   final String errMessage;
 
   const FeaturedBooksFailure(this.errMessage);
+
+  @override
+  List<Object> get props => [errMessage];
 }
 
 class FeaturedBooksSuccess extends FeaturedBooksState {

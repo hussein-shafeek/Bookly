@@ -1,28 +1,24 @@
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/core/errors/failures.dart';
+import 'package:bookly/core/utils/api_endpoints.dart';
 import 'package:bookly/core/utils/api_service.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/data/repository/home_repo.dart';
 import 'package:dartz/dartz.dart';
-import 'package:bookly/core/errors/failures.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
   HomeRepoImpl(this.apiService);
+
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
-      var data = await apiService.get(
-        endPoint:
-            'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science',
-      );
+      var data = await apiService.get(endPoint: ApiEndPoints.newestBooks());
+
       List<BookModel> books = [];
       for (var item in data['items']) {
-        try {
-          books.add(BookModel.fromJson(item));
-        } catch (e) {
-          books.add(BookModel.fromJson(item));
-        }
+        books.add(BookModel.fromJson(item));
       }
 
       return right(books);
@@ -37,9 +33,8 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming',
-      );
+      var data = await apiService.get(endPoint: ApiEndPoints.featuredBooks());
+
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
@@ -60,9 +55,9 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       var data = await apiService.get(
-        endPoint:
-            'volumes?Filtering=free-ebooks&Sorting=relevance &q=subject:Programming',
+        endPoint: ApiEndPoints.similarBooks(category: category),
       );
+
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
