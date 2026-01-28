@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'dart:io';
 
 abstract class Failure {
   final String errMessage;
@@ -18,7 +19,7 @@ class ServerFailure extends Failure {
       case DioExceptionType.receiveTimeout:
         return ServerFailure(errMessage: 'Receive timeout with ApiServer');
       case DioExceptionType.badCertificate:
-        return ServerFailure(errMessage: 'badCertificate with ApiServer');
+        return ServerFailure(errMessage: 'Bad Certificate with ApiServer');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
           statusCode: dioException.response?.statusCode,
@@ -32,7 +33,14 @@ class ServerFailure extends Failure {
           errMessage: 'No internet connection, please try again!',
         );
       case DioExceptionType.unknown:
-        return ServerFailure(errMessage: 'Unexpected error, please try later!');
+        if (dioException.error is SocketException) {
+          return ServerFailure(
+            errMessage: 'No internet connection, please check your network',
+          );
+        }
+        return ServerFailure(
+          errMessage: 'Unexpected error, please try again later!',
+        );
     }
   }
 
