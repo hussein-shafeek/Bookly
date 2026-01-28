@@ -16,7 +16,13 @@ class SimilarBooksListView extends StatelessWidget {
         itemBuilder: (context, index) => InkWell(
           onTap: () {},
           borderRadius: BorderRadius.circular(8.0),
-          child: AspectRatio(aspectRatio: 2.7 / 4, child: CustomBookImage()),
+          child: AspectRatio(
+            aspectRatio: 2.7 / 4,
+            child: CustomBookImage(
+              imageUrl:
+                  "https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg",
+            ),
+          ),
         ),
         separatorBuilder: (context, index) => const SizedBox(width: 10.0),
       ),
