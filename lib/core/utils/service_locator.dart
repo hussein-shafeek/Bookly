@@ -4,6 +4,9 @@ import 'package:bookly/features/home/data/repository/home_repo_impl.dart';
 import 'package:bookly/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_models/newest_books_cubit/newset_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_models/smila_books_cubit/similar_books_cubit.dart';
+import 'package:bookly/features/search/data/repos/search_repo.dart';
+import 'package:bookly/features/search/data/repos/search_repo_impl.dart';
+import 'package:bookly/features/search/presentation/manager/search_books_cubit/search_books_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -31,6 +34,16 @@ void setupServiceLocator() {
 
   getIt.registerFactory<SimilarBooksCubit>(
     () => SimilarBooksCubit(getIt.get<HomeRepo>()),
+  );
+
+  //SearchRepo
+  getIt.registerLazySingleton<SearchRepo>(
+    () => SearchRepoImpl(getIt.get<ApiService>()),
+  );
+
+  //search books cubit
+  getIt.registerFactory<SearchBooksCubit>(
+    () => SearchBooksCubit(getIt.get<SearchRepo>()),
   );
 }
 

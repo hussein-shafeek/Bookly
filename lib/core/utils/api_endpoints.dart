@@ -16,4 +16,8 @@ class ApiEndPoints {
   // Similar Books
   static String similarBooks({String category = 'Programming'}) =>
       'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:$category&key=$apiKey';
+
+  // Search Books
+  static String searchBooks({required String query}) =>
+      'volumes?Filtering=free-ebooks&q=$query&key=$apiKey';
 }

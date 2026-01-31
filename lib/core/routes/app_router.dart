@@ -7,6 +7,7 @@ import 'package:bookly/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/search/presentation/views/search_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bookly/features/search/presentation/manager/search_books_cubit/search_books_cubit.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/Splash/presentation/views/splash_view.dart';
 
@@ -20,7 +21,10 @@ abstract class AppRouter {
       GoRoute(path: '/', builder: (context, state) => const SplashView()),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<SearchBooksCubit>(),
+          child: const SearchView(),
+        ),
       ),
       GoRoute(
         path: kHomeView,
