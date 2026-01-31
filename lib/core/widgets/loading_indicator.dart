@@ -40,11 +40,13 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
         alignment: Alignment.center,
         children: [
           SizedBox(
-            width: 80,
-            height: 80,
+            width: 60,
+            height: 60,
             child: CircularProgressIndicator(
               strokeWidth: 4,
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.yellow),
+              valueColor: const AlwaysStoppedAnimation<Color>(
+                AppColors.loading,
+              ),
               backgroundColor: AppColors.background.withValues(alpha: 0.5),
             ),
           ),

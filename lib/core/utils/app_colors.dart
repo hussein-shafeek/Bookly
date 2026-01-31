@@ -7,4 +7,5 @@ abstract class AppColors {
   static const black = Colors.black;
   static const yellow = Color(0xffFFDD4F);
   static const brown = Color(0xffEF8262);
+  static const loading = Color(0xff3BAEA0);
 }

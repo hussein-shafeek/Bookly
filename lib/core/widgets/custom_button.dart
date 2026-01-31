@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/app_colors.dart';
 import 'package:bookly/core/utils/app_styles.dart';
-
+import 'package:bookly/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -37,12 +37,11 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? const SizedBox(
-                height: 25,
-                width: 25,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: Colors.white,
+            ? const FittedBox(
+                child: SizedBox(
+                  height: 80,
+                  width: 80,
+                  child: LoadingIndicator(),
                 ),
               )
             : Text(
