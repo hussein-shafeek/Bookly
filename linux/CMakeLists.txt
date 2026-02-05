@@ -4,10 +4,17 @@ project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
+<<<<<<< HEAD
 set(BINARY_NAME "bookly_clean_arch")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
 set(APPLICATION_ID "com.example.bookly_clean_arch")
+=======
+set(BINARY_NAME "bookly")
+# The unique GTK application identifier for this application. See:
+# https://wiki.gnome.org/HowDoI/ChooseApplicationID
+set(APPLICATION_ID "com.example.bookly")
+>>>>>>> old/main
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
