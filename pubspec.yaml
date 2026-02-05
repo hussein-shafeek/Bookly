@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: bookly_clean_arch
+=======
+name: bookly
+>>>>>>> old/main
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -28,6 +32,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+<<<<<<< HEAD
   flutter:
     sdk: flutter
 
@@ -49,6 +54,43 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+=======
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  flutter_getit: ^3.0.1
+  google_fonts: ^7.1.0
+  font_awesome_flutter: ^10.1.0
+  go_router: ^8.0.0
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  dio: ^5.9.0 
+  flutter_bloc: ^8.1.3
+  cached_network_image: ^3.4.1
+  url_launcher: ^6.3.2
+  shimmer: ^3.0.0
+  carousel_slider: ^5.1.1
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/bookly_logo.jpg"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/bookly_logo.jpg"
+    background_color: "#1E1E1E"
+    theme_color: "#1E1E1E"
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+>>>>>>> old/main
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -56,6 +98,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+<<<<<<< HEAD
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -68,11 +111,23 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
 
+=======
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - assets/icons/
+  #   - images/a_dot_ham.jpeg
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+>>>>>>> old/main
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+<<<<<<< HEAD
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -84,6 +139,13 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+=======
+  fonts:
+    - family: GtSectraFine
+      fonts:
+        - asset: assets/fonts/GT Sectra Fine Regular.ttf
+
+>>>>>>> old/main
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

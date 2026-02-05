@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 
 void main() {
@@ -117,6 +118,41 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+=======
+import 'package:bookly/constant.dart';
+import 'package:bookly/core/routes/app_router.dart';
+import 'package:bookly/core/utils/service_locator.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bookly/core/utils/bloc_observer.dart';
+
+void main() {
+  Bloc.observer = MyBlocObserver();
+  setupServiceLocator();
+  runApp(const BooklyApp());
+}
+
+class BooklyApp extends StatelessWidget {
+  const BooklyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
+      title: 'Bookly',
+
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: kPrimaryColor,
+        // Ensure AppBar matches the background color
+        appBarTheme: const AppBarTheme(
+          backgroundColor: kPrimaryColor,
+          elevation: 0,
+        ),
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+      ),
+>>>>>>> old/main
     );
   }
 }
