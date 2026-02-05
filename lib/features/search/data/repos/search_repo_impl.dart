@@ -2,7 +2,8 @@ import 'package:bookly/core/errors/failures.dart';
 import 'package:bookly/core/utils/api_endpoints.dart';
 import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly/features/search/data/repos/search_repo.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/features/search/domain/repos/search_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -12,7 +13,7 @@ class SearchRepoImpl implements SearchRepo {
   SearchRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSearchedBooks({
+  Future<Either<Failure, List<BookEntity>>> fetchSearchedBooks({
     required String category,
   }) async {
     try {
@@ -20,7 +21,7 @@ class SearchRepoImpl implements SearchRepo {
         endPoint: ApiEndPoints.searchBooks(query: category),
       );
 
-      List<BookModel> books = [];
+      List<BookEntity> books = [];
       if (data['items'] != null) {
         for (var item in data['items']) {
           books.add(BookModel.fromJson(item));

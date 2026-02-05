@@ -1,5 +1,3 @@
-import 'package:bookly/constant.dart';
-import 'package:bookly/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
 abstract class Styles {

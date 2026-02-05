@@ -1,10 +1,10 @@
 import 'package:bookly/core/utils/api_service.dart';
-import 'package:bookly/features/home/data/repository/home_repo.dart';
+import 'package:bookly/features/home/domain/repos/home_repo.dart';
 import 'package:bookly/features/home/data/repository/home_repo_impl.dart';
 import 'package:bookly/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_models/newest_books_cubit/newset_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_models/smila_books_cubit/similar_books_cubit.dart';
-import 'package:bookly/features/search/data/repos/search_repo.dart';
+import 'package:bookly/features/search/domain/repos/search_repo.dart';
 import 'package:bookly/features/search/data/repos/search_repo_impl.dart';
 import 'package:bookly/features/search/presentation/manager/search_books_cubit/search_books_cubit.dart';
 import 'package:dio/dio.dart';

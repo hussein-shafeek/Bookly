@@ -1,11 +1,11 @@
 import 'package:bookly/core/utils/functions/launch_url.dart';
 import 'package:bookly/core/widgets/custom_button.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 class BooksAction extends StatefulWidget {
   const BooksAction({super.key, required this.bookModel});
-  final BookModel bookModel;
+  final BookEntity bookModel;
 
   @override
   State<BooksAction> createState() => _BooksActionState();
@@ -39,10 +39,7 @@ class _BooksActionState extends State<BooksAction> {
                   isLoading = true;
                 });
 
-                await launchCustomUrl(
-                  context,
-                  widget.bookModel.volumeInfo.previewLink,
-                );
+                await launchCustomUrl(context, widget.bookModel.previewLink);
 
                 await Future.delayed(const Duration(milliseconds: 500));
 
@@ -67,8 +64,8 @@ class _BooksActionState extends State<BooksAction> {
     );
   }
 
-  String getText(BookModel bookModel) {
-    if (bookModel.volumeInfo.previewLink == null) {
+  String getText(BookEntity bookModel) {
+    if (bookModel.previewLink == null) {
       return 'Not Avaliable';
     } else {
       return 'Preview';

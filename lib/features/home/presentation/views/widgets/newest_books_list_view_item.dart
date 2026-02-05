@@ -1,6 +1,6 @@
 import 'package:bookly/core/routes/app_router.dart';
 import 'package:bookly/core/utils/app_styles.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 
 class NesetBookListViewItem extends StatelessWidget {
   const NesetBookListViewItem({super.key, required this.book});
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class NesetBookListViewItem extends StatelessWidget {
           children: [
             CustomBookImage(
               imageUrl:
-                  book.volumeInfo.imageLinks?.thumbnail ??
+                  book.image ??
                   'https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg',
             ),
             const SizedBox(width: 30),
@@ -33,7 +33,7 @@ class NesetBookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      book.volumeInfo.title ?? "no title",
+                      book.title ?? "no title",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20Gt,
@@ -41,7 +41,7 @@ class NesetBookListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    book.volumeInfo.authors?[0] ?? "no author",
+                    book.authorName ?? "no author",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle16Gt,
@@ -57,8 +57,8 @@ class NesetBookListViewItem extends StatelessWidget {
                         ),
                       ),
                       BookRating(
-                        rating: book.volumeInfo.averageRating ?? 0,
-                        count: book.volumeInfo.ratingsCount ?? 0,
+                        rating: book.rating ?? 0,
+                        count: book.ratingsCount ?? 0,
                       ),
                     ],
                   ),
