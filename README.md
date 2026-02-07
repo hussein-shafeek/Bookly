@@ -34,12 +34,24 @@ The application fetches book data from the Google Books API, allowing users to:
 
 ## ✨ Key Features
 
-- **Clean Architecture**: Separation of concerns into Data, Domain, and Presentation layers for scalability and testability.
-- **MVVM Pattern**: Efficient state management and logic separation using **Cubit/Bloc**.
-- **Responsive UI**: Adaptive layout ensuring a great experience across devices.
-- **Interactive Search**: Search functionality with input validation and debouncing to optimize API calls.
-- **Dark Mode**: A sleek, modern dark theme using a custom color palette.
-- **Robust Error Handling**: Graceful handling of network errors and exceptions using functional programming concepts (`Either` type).
+- **Clean Architecture**  
+  Clear separation of concerns into **Data**, **Domain**, and **Presentation** layers, ensuring scalability, maintainability, and testability.
+
+- **Bloc & Cubit State Management**  
+  Predictable and well-organized state management following clean architecture principles.
+
+- **Responsive UI**  
+  Adaptive layouts that provide a consistent and smooth experience across different screen sizes and devices.
+
+- **Interactive Search**  
+  Optimized search functionality with input validation and debouncing to reduce unnecessary API calls.
+
+- **Dark Mode**  
+  Modern and elegant dark theme built using a custom color palette.
+
+- **Robust Error Handling**  
+  Functional error handling using the `Either` type to gracefully handle network failures and unexpected exceptions.
+
 
 ## 🛠️ Tech Stack & Libraries
 
