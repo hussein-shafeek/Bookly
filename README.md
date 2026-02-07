@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# bookly_clean_arch
+# 📚 Bookly App (Clean Architecture)
 
 A new Flutter project.
 
@@ -23,6 +23,12 @@ Bookly is a sophisticated book browsing application built with **Flutter**, desi
 <p align="center">
   <img src="assets/images/bookly_logo.jpg" alt="Bookly Logo" width="150"/>
 </p>
+
+## 🎥 App Demo Video
+Watch the full app flow and UI experience here:  
+https://drive.google.com/drive/folders/13ikic0Rj8HOgjf3r_LBUx61vy3Vv-U86
+
+---
 
 ## 🚀 Project Overview
 
